@@ -1,0 +1,5 @@
+/models
+/data
+.vscode
+.venv/
+*.pyc
