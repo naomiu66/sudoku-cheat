@@ -23,3 +23,9 @@ for i in range(1, 10):
     end_time = time.time()
     print(f"Time taken: {end_time - start_time:.4f} seconds")
     print()
+    
+
+image_path = Path(f"data/eight_slavic.jpg")
+image = Image.open(image_path)
+print(f"Predicting number for image: {image_path}")
+print(f"Predicted number and logits: {predict(image, model, processor)}")

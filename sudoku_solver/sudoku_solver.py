@@ -59,7 +59,7 @@ class SudokuSolver:
             self.place(r, c, pick)
             board[r][c] = str(num + 1)
 
-            if self.backtrack():
+            if self.backtrack(board):
                 return True
 
             self.remove(r, c, pick)
@@ -71,17 +71,26 @@ class SudokuSolver:
         return False   
     
     def solveSudoku(self, board: list[list[str]]) -> list[list[str]]:
+        if len(board) != self.n or any(len(row) != self.n for row in board):
+            raise ValueError("Sudoku board must be a 9x9 grid")
+
         self.__init__()
 
         for r in range(self.n):
             for c in range(self.n):
                 val = board[r][c]
                 if val != ".":
+                    if val not in "123456789":
+                        raise ValueError(f"Invalid value {val!r} at row {r + 1}, column {c + 1}")
                     mask = 1 << (int(val) - 1)
+                    block = (r // 3, c // 3)
+                    if self.rows[r] & mask or self.cols[c] & mask or self.blocks[block] & mask:
+                        raise ValueError(f"Duplicate value {val} at row {r + 1}, column {c + 1}")
                     self.place(r, c, mask)
                 else:
                     self.empties.append((r, c))
 
-        self.backtrack()
+        if not self.backtrack(board):
+            raise ValueError("Sudoku board has no solution")
         
         return board
