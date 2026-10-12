@@ -25,7 +25,7 @@ def run_once(model, processor):
 
 
 def main():
-    model_dir = Path("models/v3")
+    model_dir = Path("models/v5")
     model = DinoClassifier(n_hid=384, n_classes=10)
     model.load_state_dict(torch.load(model_dir / "model.pth", map_location="cpu"))
     model.eval()

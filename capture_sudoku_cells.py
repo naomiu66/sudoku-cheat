@@ -15,7 +15,7 @@ from utils.sudoku_interactor import BOARD_BOTTOM_RIGHT, BOARD_TOP_LEFT
 CELL_DISPLAY_SIZE = 160
 LABEL_HEIGHT = 26
 OUTPUT_DIR = Path("data/sudoku_debug")
-DATASET_DIR = Path("data/dataset")
+DATASET_DIR = Path("data/dataset/val")
 
 
 def capture_once(output_dir: Path = OUTPUT_DIR):
