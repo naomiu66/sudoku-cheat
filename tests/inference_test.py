@@ -25,7 +25,7 @@ for i in range(1, 10):
     print()
     
 
-image_path = Path(f"data/eight_slavic.jpg")
-image = Image.open(image_path)
-print(f"Predicting number for image: {image_path}")
-print(f"Predicted number and logits: {predict(image, model, processor)}")
+# image_path = Path(f"data/eight_slavic.jpg")
+# image = Image.open(image_path)
+# print(f"Predicting number for image: {image_path}")
+# print(f"Predicted number and logits: {predict(image, model, processor)}")
